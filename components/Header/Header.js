@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Headline = styled.h1`
+const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,14 @@ const Headline = styled.h1`
   padding: 1rem 1rem 1rem 1rem;
   box-shadow: 0.1rem 0.4rem 0.5rem -0.25rem #dddddd;
 `;
+const Title = styled.h1`
+  font-size: 1rem;
+`;
 
 export default function Header() {
-  return <Headline>Kanban Project management Tool</Headline>;
+  return (
+    <HeaderContainer>
+      <Title>Kanban Project management Tool</Title>
+    </HeaderContainer>
+  );
 }

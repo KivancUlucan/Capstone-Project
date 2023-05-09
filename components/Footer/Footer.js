@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const FooterContainer = styled.footer`
   position: fixed;
@@ -23,7 +24,7 @@ const NavItem = styled.li`
   margin: 0 10px;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: black;
   text-decoration: none;
   font-size: 1rem;

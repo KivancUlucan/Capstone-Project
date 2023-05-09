@@ -36,7 +36,7 @@ export default function Footer() {
     <FooterContainer>
       <NavList>
         <NavItem>
-          <NavLink href="/summary">Summary</NavLink>
+          <NavLink href="/">Summary</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/board">Board</NavLink>

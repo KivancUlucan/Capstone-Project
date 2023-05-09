@@ -19,7 +19,7 @@ const Title = styled.h1`
 export default function Header() {
   return (
     <HeaderContainer>
-      <Title>Kanban Project management Tool</Title>
+      <Title>Kanban Project Management Tool</Title>
     </HeaderContainer>
   );
 }

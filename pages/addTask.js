@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 
 export default function AddTaskForm() {
   function handleSubmit(event) {
@@ -20,6 +19,7 @@ export default function AddTaskForm() {
         name="title"
         minlength="3"
         maxlength="30"
+        placeholder="Enter a title"
         required
       />
 
@@ -32,78 +32,120 @@ export default function AddTaskForm() {
         name="description"
         minlength="3"
         maxlength="100"
+        placeholder="Enter a description"
         required
       ></TextareaForDescription>
 
       <LabelForPriority htmlFor="prio">Priority:</LabelForPriority>
-      <select id="prio" name="prio" required>
+      <SelectForPriority id="prio" name="prio" required>
         <option value="Urgent">Urgent</option>
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
-      </select>
+      </SelectForPriority>
 
       <LabelForDueDate htmlFor="dueDate">Due Date:</LabelForDueDate>
       <InputForDueDate type="date" id="dueDate" name="dueDate" required />
 
       <LabelForCategory htmlFor="category">Category:</LabelForCategory>
-      <select id="category" name="category" required>
+      <SelectForCategory id="category" name="category" required>
         <option value="Backlog">Backlog</option>
         <option value="In Progress">In Progress</option>
         <option value="Awaiting Feedback">Awaiting Feedback</option>
         <option value="Done">Done</option>
-      </select>
+      </SelectForCategory>
 
-      <button type="submit">Add Task</button>
+      <AddTaskButton type="submit">Add Task</AddTaskButton>
     </AddTask_Form>
   );
 }
 
-const AddTaskContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 const AddTask_Form = styled.form`
   display: flex;
   flex-direction: column;
+  margin-left: 3rem;
 `;
 const LabelForTitle = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
 `;
 const InputForTitle = styled.input`
-  box-sizing: border-box;
-  border-radius: 0.6rem;
-  width: 22.5rem;
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 20rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
 `;
 const LabelForDescription = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
 `;
 const TextareaForDescription = styled.textarea`
-  box-sizing: border-box;
-  border-radius: 0.6rem;
-  width: 22.5rem;
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 20rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
 `;
 const LabelForPriority = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
 `;
 const LabelForDueDate = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
 `;
 
 const InputForDueDate = styled.input`
-  box-sizing: border-box;
-  border-radius: 0.6rem;
-  width: 22.5rem;
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 20rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
 `;
 const LabelForCategory = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+`;
+const SelectForPriority = styled.select`
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 20rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+`;
+const SelectForCategory = styled.select`
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 20rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+`;
+const AddTaskButton = styled.button`
+  margin-top: 2rem;
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 20rem;
+  height: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
 `;

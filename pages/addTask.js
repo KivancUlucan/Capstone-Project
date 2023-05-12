@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export default function AddTaskForm() {
+export default function AddTaskForm({ handleAddTask }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
+    handleAddTask(data);
   }
 
   return (

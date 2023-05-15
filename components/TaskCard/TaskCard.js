@@ -4,7 +4,7 @@ export default function TaskCard({ task }) {
   return (
     <Card>
       <Title>Title: {task.title}</Title>
-      <Description>Description:{task.description} </Description>
+      <Description>Description: {task.description}</Description>
       <Priority>Priority: {task.prio}</Priority>
       <DueDate>DueDate: {task.dueDate}</DueDate>
       <Category>Category: {task.category}</Category>

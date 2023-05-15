@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export default function AddTaskForm({ handleAddTask }) {
   function handleSubmit(event) {
@@ -9,11 +9,11 @@ export default function AddTaskForm({ handleAddTask }) {
   }
 
   return (
-    <AddTask_Form onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <h1>Add Task</h1>
 
-      <LabelForTitle htmlFor="title">Title:</LabelForTitle>
-      <InputForTitle
+      <StyledLabel htmlFor="title">Title:</StyledLabel>
+      <StyledInput
         id="title"
         type="text"
         name="title"
@@ -23,9 +23,7 @@ export default function AddTaskForm({ handleAddTask }) {
         required
       />
 
-      <LabelForDescription htmlFor="description">
-        Description:
-      </LabelForDescription>
+      <StyledLabel htmlFor="description">Description:</StyledLabel>
       <TextareaForDescription
         id="description"
         type="text"
@@ -36,41 +34,41 @@ export default function AddTaskForm({ handleAddTask }) {
         required
       ></TextareaForDescription>
 
-      <LabelForPriority htmlFor="prio">Priority:</LabelForPriority>
-      <SelectForPriority id="prio" name="prio" required>
+      <StyledLabel htmlFor="prio">Priority:</StyledLabel>
+      <StyledSelect id="prio" name="prio" required>
         <option value="Urgent">Urgent</option>
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
-      </SelectForPriority>
+      </StyledSelect>
 
-      <LabelForDueDate htmlFor="dueDate">Due Date:</LabelForDueDate>
-      <InputForDueDate type="date" id="dueDate" name="dueDate" required />
+      <StyledLabel htmlFor="dueDate">Due Date:</StyledLabel>
+      <StyledInput type="date" id="dueDate" name="dueDate" required />
 
-      <LabelForCategory htmlFor="category">Category:</LabelForCategory>
-      <SelectForCategory id="category" name="category" required>
+      <StyledLabel htmlFor="category">Category:</StyledLabel>
+      <StyledSelect id="category" name="category" required>
         <option value="Backlog">Backlog</option>
         <option value="In Progress">In Progress</option>
         <option value="Awaiting Feedback">Awaiting Feedback</option>
         <option value="Done">Done</option>
-      </SelectForCategory>
+      </StyledSelect>
 
       <AddTaskButton type="submit">Add Task</AddTaskButton>
-    </AddTask_Form>
+    </StyledForm>
   );
 }
 
-const AddTask_Form = styled.form`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
 `;
-const LabelForTitle = styled.label`
+const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
 `;
-const InputForTitle = styled.input`
+const baseInputStyles = css`
   border: 0.03rem solid #d1d1d1;
   border-radius: 0.3rem;
   width: 20rem;
@@ -78,68 +76,20 @@ const InputForTitle = styled.input`
   outline: none;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
-`;
-const LabelForDescription = styled.label`
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-`;
-const TextareaForDescription = styled.textarea`
-  border: 0.03rem solid #d1d1d1;
-  border-radius: 0.3rem;
-  width: 20rem;
-  height: 2.5rem;
-  outline: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-`;
-const LabelForPriority = styled.label`
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-`;
-const LabelForDueDate = styled.label`
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
 `;
 
-const InputForDueDate = styled.input`
-  border: 0.03rem solid #d1d1d1;
-  border-radius: 0.3rem;
-  width: 20rem;
-  height: 2.5rem;
-  outline: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+const StyledInput = styled.input`
+  ${baseInputStyles}
 `;
-const LabelForCategory = styled.label`
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
+
+const TextareaForDescription = styled.textarea`
+  ${baseInputStyles}
 `;
-const SelectForPriority = styled.select`
-  border: 0.03rem solid #d1d1d1;
-  border-radius: 0.3rem;
-  width: 20rem;
-  height: 2.5rem;
-  outline: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+
+const StyledSelect = styled.select`
+  ${baseInputStyles}
 `;
-const SelectForCategory = styled.select`
-  border: 0.03rem solid #d1d1d1;
-  border-radius: 0.3rem;
-  width: 20rem;
-  height: 2.5rem;
-  outline: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-`;
+
 const AddTaskButton = styled.button`
   margin-top: 2rem;
   border: 0.03rem solid #d1d1d1;

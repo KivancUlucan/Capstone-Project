@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export default function TaskCard(data) {
+export default function TaskCard({ task }) {
   return (
     <Card>
-      <Title>Title: {data.task.title}</Title>
-      <Description>Description:{data.task.description} </Description>
-      <Priority>Priority: {data.task.prio}</Priority>
-      <DueDate>DueDate: {data.task.dueDate}</DueDate>
-      <Category>Category: {data.task.category}</Category>
+      <Title>Title: {task.title}</Title>
+      <Description>Description:{task.description} </Description>
+      <Priority>Priority: {task.prio}</Priority>
+      <DueDate>DueDate: {task.dueDate}</DueDate>
+      <Category>Category: {task.category}</Category>
     </Card>
   );
 }

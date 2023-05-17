@@ -1,4 +1,4 @@
-import SummaryCard from "@/components/SummaryCard/summaryCard";
+import SummaryCard from "@/components/SummaryCard/SummaryCard";
 import styled from "styled-components";
 
 export default function HomePage() {

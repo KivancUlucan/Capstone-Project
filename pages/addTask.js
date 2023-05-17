@@ -60,7 +60,7 @@ export default function AddTaskForm({ handleAddTask }) {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin-left: 3rem;
+  margin-left: 1rem;
 `;
 const StyledLabel = styled.label`
   display: flex;

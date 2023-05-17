@@ -14,7 +14,7 @@ export default function TaskCard({ task }) {
 
 const Card = styled.div`
   border: 0.03rem solid #d1d1d1;
-  border-radius: 0.3rem;
+  border-radius: 1.25rem;
   min-width: 20rem;
   min-height: 2.5rem;
   outline: none;

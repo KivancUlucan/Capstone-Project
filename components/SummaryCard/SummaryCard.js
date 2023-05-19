@@ -1,11 +1,27 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
-export default function SummaryCard({ text, size }) {
+export default function SummaryCard({ text, size, tasks }) {
+  const [categoryCounts, setCategoryCounts] = useState({});
+
+  useEffect(() => {
+    const counts = tasks.reduce((counts, task) => {
+      counts[task.category] = (counts[task.category] || 0) + 1;
+      return counts;
+    }, {});
+
+    setCategoryCounts(counts);
+  }, [tasks]);
+
   return (
-    <Card size={size}>
-      <SummaryNumber>5</SummaryNumber>
-      <SummaryText>{text}</SummaryText>
-    </Card>
+    <>
+      {Object.entries(categoryCounts).map(([category, count]) => (
+        <Card key={category} size={size}>
+          <SummaryNumber>{count}</SummaryNumber>
+          <SummaryText>{text}</SummaryText>
+        </Card>
+      ))}
+    </>
   );
 }
 

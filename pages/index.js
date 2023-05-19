@@ -1,7 +1,7 @@
 import SummaryCard from "@/components/SummaryCard/SummaryCard";
 import styled from "styled-components";
 
-export default function HomePage() {
+export default function HomePage({ tasks }) {
   return (
     <SummaryContainer>
       <h1>Summary</h1>

@@ -16,7 +16,7 @@ export default function SummaryCard({ text, size, tasks }) {
   return (
     <>
       {Object.entries(categoryCounts).map(([category, count]) => (
-        <Card key={category} size={size}>
+        <Card key={category} size={size} tasks={tasks}>
           <SummaryNumber>{count}</SummaryNumber>
           <SummaryText>{text}</SummaryText>
         </Card>

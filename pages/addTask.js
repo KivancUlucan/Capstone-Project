@@ -46,8 +46,8 @@ export default function AddTaskForm({ handleAddTask }) {
 
       <StyledLabel htmlFor="category">Category:</StyledLabel>
       <StyledSelect id="category" name="category" required>
-        <option value="Backlog">Backlog</option>
-        <option value="In Progress">In Progress</option>
+        <option value="Tasks in Backlog">Backlog</option>
+        <option value="Tasks in Progress">In Progress</option>
         <option value="Awaiting Feedback">Awaiting Feedback</option>
         <option value="Done">Done</option>
       </StyledSelect>

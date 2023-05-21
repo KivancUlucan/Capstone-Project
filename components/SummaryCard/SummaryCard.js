@@ -2,25 +2,31 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 export default function SummaryCard({ text, size, tasks }) {
-  const [categoryCounts, setCategoryCounts] = useState({});
+  const [categoryCounts, setCategoryCounts] = useState(0);
+  //   const [elementTocounts, setElementTocounts] = useState({tasks.[].category});
+  //   const [occurrenceCount, setOccurrenceCount] = useState(0);
+
+  // useEffect(() => {
+  //   const filteredArray = tasks.filter(task) => {}
+  // }
 
   useEffect(() => {
-    const counts = tasks.reduce((counts, task) => {
-      counts[task.category] = (counts[task.category] || 0) + 1;
-      return counts;
-    }, {});
+    console.log(tasks);
+
+    const counts = tasks.filter((task) => text === task.category).length;
 
     setCategoryCounts(counts);
   }, [tasks]);
 
+  //let count = categoryCounts.length;
+  console.log(categoryCounts);
+
   return (
     <>
-      {Object.entries(categoryCounts).map(([category, count]) => (
-        <Card key={category} size={size} tasks={tasks}>
-          <SummaryNumber>{count}</SummaryNumber>
-          <SummaryText>{text}</SummaryText>
-        </Card>
-      ))}
+      <Card key={text} size={size} tasks={tasks}>
+        <SummaryNumber>{categoryCounts}</SummaryNumber>
+        <SummaryText>{text}</SummaryText>
+      </Card>
     </>
   );
 }

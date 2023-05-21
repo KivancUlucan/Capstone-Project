@@ -3,15 +3,9 @@ import { useState, useEffect } from "react";
 
 export default function SummaryCard({ text, size, tasks }) {
   const [categoryCounts, setCategoryCounts] = useState(0);
-  //   const [elementTocounts, setElementTocounts] = useState({tasks.[].category});
-  //   const [occurrenceCount, setOccurrenceCount] = useState(0);
-
-  // useEffect(() => {
-  //   const filteredArray = tasks.filter(task) => {}
-  // }
 
   useEffect(() => {
-    console.log(tasks);
+    // console.log(tasks);
 
     const counts = tasks.filter((task) => text === task.category).length;
 

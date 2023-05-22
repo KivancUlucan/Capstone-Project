@@ -5,15 +5,10 @@ export default function SummaryCard({ text, size, tasks }) {
   const [categoryCounts, setCategoryCounts] = useState(0);
 
   useEffect(() => {
-    // console.log(tasks);
-
     const counts = tasks.filter((task) => text === task.category).length;
 
     setCategoryCounts(counts);
   }, [tasks]);
-
-  //let count = categoryCounts.length;
-  console.log(categoryCounts);
 
   return (
     <>

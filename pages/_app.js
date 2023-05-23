@@ -10,10 +10,20 @@ export default function App({ Component, pageProps }) {
   function handleAddTask(newTask) {
     setTasks([...tasks, { ...newTask, id: uid() }]);
   }
+
+  const updateTask = function (task) {
+    setTasks(tasks.map((t) => (t.id === task.id ? task : t)));
+  };
+
   return (
     <Layout>
       <GlobalStyle />
-      <Component {...pageProps} handleAddTask={handleAddTask} tasks={tasks} />
+      <Component
+        {...pageProps}
+        handleAddTask={handleAddTask}
+        updateTaskParent={updateTask}
+        tasks={tasks}
+      />
     </Layout>
   );
 }

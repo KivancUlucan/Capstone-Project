@@ -6,6 +6,8 @@ import AddTaskForm from "@/pages/addTask";
 
 export default function TaskCard({ task, updateTask }) {
   const [editMode, setEditMode] = useState(false);
+  const [taskout, setTaskOut] = useState({ ...task });
+
   const handleEdit = (event) => {
     // Handle edit button click
     event.preventDefault(); // Prevent default form submission behavior
@@ -13,12 +15,18 @@ export default function TaskCard({ task, updateTask }) {
     setEditMode(!editMode);
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setTaskOut((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
     setEditMode(false);
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    updateTask(data);
+    updateTask(taskout);
   }
 
   return (
@@ -34,7 +42,8 @@ export default function TaskCard({ task, updateTask }) {
             maxlength="30"
             placeholder="Enter a title"
             required
-            value={task.title}
+            value={taskout.title}
+            onChange={handleChange}
           />
 
           <StyledLabel htmlFor="description">Description:</StyledLabel>
@@ -46,18 +55,19 @@ export default function TaskCard({ task, updateTask }) {
             maxlength="100"
             placeholder="Enter a description"
             required
-            value={task.description}
+            value={taskout.description}
+            onChange={handleChange}
           ></TextareaForDescription>
 
           <StyledLabel htmlFor="prio">Priority:</StyledLabel>
-          <StyledSelect id="prio" name="prio" required>
-            <option selected={task.prio === "Urgent"} value="Urgent">
+          <StyledSelect id="prio" name="prio" required onChange={handleChange}>
+            <option selected={taskout.prio === "Urgent"} value="Urgent">
               Urgent
             </option>
-            <option selected={task.prio === "Medium"} value="Medium">
+            <option selected={taskout.prio === "Medium"} value="Medium">
               Medium
             </option>
-            <option selected={task.prio === "Low"} value="Low">
+            <option selected={taskout.prio === "Low"} value="Low">
               Low
             </option>
           </StyledSelect>
@@ -68,30 +78,36 @@ export default function TaskCard({ task, updateTask }) {
             id="dueDate"
             name="dueDate"
             required
-            value={task.dueDate}
+            value={taskout.dueDate}
+            onChange={handleChange}
           />
 
           <StyledLabel htmlFor="category">Category:</StyledLabel>
-          <StyledSelect id="category" name="category" required>
+          <StyledSelect
+            id="category"
+            name="category"
+            required
+            onChange={handleChange}
+          >
             <option
-              selected={task.category === "Tasks in Backlog"}
+              selected={taskout.category === "Tasks in Backlog"}
               value="Tasks in Backlog"
             >
               Backlog
             </option>
             <option
-              selected={task.category === "Tasks in Progress"}
+              selected={taskout.category === "Tasks in Progress"}
               value="Tasks in Progress"
             >
               In Progress
             </option>
             <option
-              selected={task.category === "Awaiting Feedback"}
+              selected={taskout.category === "Awaiting Feedback"}
               value="Awaiting Feedback"
             >
               Awaiting Feedback
             </option>
-            <option selected={task.category === "Done"} value="Done">
+            <option selected={taskout.category === "Done"} value="Done">
               Done
             </option>
           </StyledSelect>
@@ -101,11 +117,17 @@ export default function TaskCard({ task, updateTask }) {
         </Card>
       ) : (
         <Card>
-          <Title>Title: {task.title}</Title>
-          <Description>Description: {task.description}</Description>
-          <Priority>Priority: {task.prio}</Priority>
-          <DueDate>DueDate: {task.dueDate}</DueDate>
-          <Category>Category: {task.category}</Category>
+          <Title>{taskout.title}</Title>
+          <Description>{taskout.description}</Description>
+          <Priority>
+            <strong>Priority:</strong> {taskout.prio}
+          </Priority>
+          <DueDate>
+            <strong>Due Date:</strong> {taskout.dueDate}
+          </DueDate>
+          <Category>
+            <strong>Category:</strong> {taskout.category}
+          </Category>
           <EditButton type="submit" onClick={handleEdit}>
             Edit
           </EditButton>
@@ -116,14 +138,14 @@ export default function TaskCard({ task, updateTask }) {
 }
 
 const Card = styled.div`
-  border: 0.03rem solid #d1d1d1;
   border-radius: 1.25rem;
-  min-width: 20rem;
+  width: 20rem;
   min-height: 2.5rem;
   outline: none;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  background-color: white;
 `;
 
 const Title = styled.h2`
@@ -150,7 +172,6 @@ const Category = styled.p`
   font-size: 0.8rem;
   margin-bottom: 5px;
 `;
-const EditButton = styled.button``;
 
 export const StyledForm = styled.form`
   display: flex;
@@ -189,8 +210,37 @@ export const SaveTaskButton = styled.button`
   margin-top: 2rem;
   border: 0.03rem solid #d1d1d1;
   border-radius: 0.3rem;
-  width: 20rem;
+  width: 10rem;
   height: 2.5rem;
   outline: none;
   padding: 0.5rem 1rem;
+  background-color: #2a3647;
+  color: #fff;
+  &:hover {
+    background-color: #5cbf2a;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+`;
+
+const EditButton = styled.button`
+  margin-top: 2rem;
+  border: 0.03rem solid #d1d1d1;
+  border-radius: 0.3rem;
+  width: 5rem;
+  height: 2rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  background-color: #2a3647;
+  color: #fff;
+
+  &:hover {
+    background-color: #5cbf2a;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 `;

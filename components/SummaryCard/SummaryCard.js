@@ -26,7 +26,6 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0.03rem solid #d1d1d1;
   border-radius: 1.25rem;
   box-shadow: 0rem 0rem 0.25rem rgba(0, 0, 0, 0.1);
   width: ${(props) => {
@@ -37,6 +36,12 @@ const Card = styled.div`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  background-color: #ffffff;
+  border: none;
+  &:hover {
+    background-color: #2a3647;
+    color: #fff;
+  }
 `;
 
 const SummaryNumber = styled.span`

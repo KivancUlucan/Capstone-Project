@@ -3,12 +3,12 @@ import Header from "../Header/Header";
 import styled from "styled-components";
 
 const Main = styled.main`
-  display: grid;
-  gap: 0.5rem;
-  margin-top: 5rem;
-  padding: 0.5rem;
+  display: flex;
+
+  padding: 5rem 0.5rem 7rem 0.5rem;
   position: relative;
   width: 100%;
+  align-items: center;
 `;
 
 export default function Layout({ children }) {

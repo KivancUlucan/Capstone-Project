@@ -3,6 +3,7 @@ import Link from "next/link";
 //import { FiSidebar } from "react-icons/fa";
 
 const FooterContainer = styled.footer`
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;

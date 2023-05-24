@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Link from "next/link";
-//import { FiSidebar } from "react-icons/fa";
+import { FiSidebar } from "react-icons/fi";
+import { FiEdit } from "react-icons/fi";
+import { FiLayout } from "react-icons/fi";
 
 const FooterContainer = styled.footer`
   position: fixed;
@@ -23,14 +25,17 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  margin: 0 10px;
+  display: flex;
+  margin: 0 0.3rem;
+  align-items: center;
+  color: #cdcdcd;
 `;
 
 const NavLink = styled(Link)`
   color: #cdcdcd;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: bold;
+  padding-right: 0.2rem;
 `;
 
 export default function Footer() {
@@ -38,13 +43,15 @@ export default function Footer() {
     <FooterContainer>
       <NavList>
         <NavItem>
+          <FiLayout style={{ marginRight: "0.2rem" }} />
           <NavLink href="/">Summary</NavLink>
-          {/* <FiSidebar /> */}
         </NavItem>
         <NavItem>
+          <FiSidebar style={{ marginRight: "0.2rem" }} />
           <NavLink href="/board">Board</NavLink>
         </NavItem>
         <NavItem>
+          <FiEdit style={{ marginRight: "0.2rem" }} />
           <NavLink href="/addTask">Add Task</NavLink>
         </NavItem>
       </NavList>

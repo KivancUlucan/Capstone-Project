@@ -76,7 +76,7 @@ export const StyledLabel = styled.label`
 export const baseInputStyles = css`
   border: 0.01rem solid #d1d1d1;
   border-radius: 0.3rem;
-  width: 20rem;
+  min-width: 15rem;
   height: 2.5rem;
   outline: none;
   padding: 0.5rem 1rem;

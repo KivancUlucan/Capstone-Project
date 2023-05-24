@@ -19,6 +19,7 @@ export default function HomePage({ tasks }) {
     </SummaryContainer>
   );
 }
+
 const SummaryContainer = styled.div`
   margin-left: 1rem;
 `;

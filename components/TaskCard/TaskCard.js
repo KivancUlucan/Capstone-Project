@@ -139,7 +139,7 @@ export default function TaskCard({ task, updateTask }) {
 
 const Card = styled.div`
   border-radius: 1.25rem;
-  width: 20rem;
+  min-width: 20rem;
   min-height: 2.5rem;
   outline: none;
   padding: 0.5rem 1rem;
